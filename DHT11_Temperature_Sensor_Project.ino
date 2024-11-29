@@ -65,21 +65,51 @@ void loop() {
 void ledTempBar(float t){
    
    if(t>=20){
-      if(t<= 21) digitalWrite(led0, HIGH);
+      if(t<= 21) {digitalWrite(led0, HIGH);
+              digitalWrite(led1, LOW);
+              digitalWrite(led2, LOW);
+              digitalWrite(led3, LOW);
+              digitalWrite(led4, LOW);
+              digitalWrite(led5, LOW);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);}
       else if(t<=22){
               digitalWrite(led0, HIGH);
               digitalWrite(led1, HIGH);
+              digitalWrite(led2, LOW);
+              digitalWrite(led3, LOW);
+              digitalWrite(led4, LOW);
+              digitalWrite(led5, LOW);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
    }
       else if(t<=23){
               digitalWrite(led0, HIGH);
               digitalWrite(led1, HIGH);
               digitalWrite(led2, HIGH);
+              digitalWrite(led3, LOW);
+              digitalWrite(led4, LOW);
+              digitalWrite(led5, LOW);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
               }
       else if(t<=24){
               digitalWrite(led0, HIGH);
               digitalWrite(led1, HIGH);
               digitalWrite(led2, HIGH);
               digitalWrite(led3, HIGH);
+              digitalWrite(led4, LOW);
+              digitalWrite(led5, LOW);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
               }
       else if(t<=25){
               digitalWrite(led0, HIGH);
@@ -87,6 +117,12 @@ void ledTempBar(float t){
               digitalWrite(led2, HIGH);
               digitalWrite(led3, HIGH);
               digitalWrite(led4, HIGH);
+              digitalWrite(led5, LOW);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
+
               }
       else if(t<=26){
               digitalWrite(led0, HIGH);
@@ -95,6 +131,10 @@ void ledTempBar(float t){
               digitalWrite(led3, HIGH);
               digitalWrite(led4, HIGH);
               digitalWrite(led5, HIGH);
+              digitalWrite(led6, LOW);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
               }
       else if(t<=27){
               digitalWrite(led0, HIGH);
@@ -104,6 +144,9 @@ void ledTempBar(float t){
               digitalWrite(led4, HIGH);
               digitalWrite(led5, HIGH);
               digitalWrite(led6, HIGH);
+              digitalWrite(led7, LOW);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
               }
       else if(t<=28){
               digitalWrite(led0, HIGH);
@@ -114,8 +157,10 @@ void ledTempBar(float t){
               digitalWrite(led5, HIGH);
               digitalWrite(led6, HIGH);
               digitalWrite(led7, HIGH);
+              digitalWrite(led8, LOW);
+              digitalWrite(led9, LOW);
               }
-      else if(t<=29){
+      else if(28<t<=29){
               digitalWrite(led0, HIGH);
               digitalWrite(led1, HIGH);
               digitalWrite(led2, HIGH);
@@ -125,6 +170,7 @@ void ledTempBar(float t){
               digitalWrite(led6, HIGH);
               digitalWrite(led7, HIGH);
               digitalWrite(led8, HIGH);
+              digitalWrite(led9, LOW);
               }
      else if(t<=30){
               digitalWrite(led0, HIGH);
