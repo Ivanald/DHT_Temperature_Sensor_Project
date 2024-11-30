@@ -30,10 +30,12 @@ int humidity = 0;         // For saving humuduty
 Bonezegei_DHT11 dht0(dhtDataPin);
 
 void setup() {
+  
+  // Instance creation
 
   Serial.begin(9600);
   dht0.begin();
-  
+  // Pin Mode selection
   pinMode(led0, OUTPUT); 
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
@@ -46,6 +48,8 @@ void setup() {
   pinMode(led9, OUTPUT);
 }
 
+// while loop for sensing continuously
+
 void loop() {
 
   dhtSensorRead();
@@ -54,136 +58,32 @@ void loop() {
   ledTempBar(temp);
   delay(1000);
 
-  /*for(int i=0; i<10 ; i++){
-   digitalWrite(i + led0, HIGH );
-  delay(500);
-  }
-  //digitalWrite(led0, HIGH); */
-
 }
 
-void ledTempBar(float t){
-   
-   if(t>=20){
-      if(t<= 21) {digitalWrite(led0, HIGH);
-              digitalWrite(led1, LOW);
-              digitalWrite(led2, LOW);
-              digitalWrite(led3, LOW);
-              digitalWrite(led4, LOW);
-              digitalWrite(led5, LOW);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);}
-      else if(t<=22){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, LOW);
-              digitalWrite(led3, LOW);
-              digitalWrite(led4, LOW);
-              digitalWrite(led5, LOW);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-   }
-      else if(t<=23){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, LOW);
-              digitalWrite(led4, LOW);
-              digitalWrite(led5, LOW);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-              }
-      else if(t<=24){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, LOW);
-              digitalWrite(led5, LOW);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-              }
-      else if(t<=25){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, LOW);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
+// Function to on or off LEDs according to condition in ledTempBar
 
-              }
-      else if(t<=26){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, HIGH);
-              digitalWrite(led6, LOW);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-              }
-      else if(t<=27){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, HIGH);
-              digitalWrite(led6, HIGH);
-              digitalWrite(led7, LOW);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-              }
-      else if(t<=28){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, HIGH);
-              digitalWrite(led6, HIGH);
-              digitalWrite(led7, HIGH);
-              digitalWrite(led8, LOW);
-              digitalWrite(led9, LOW);
-              }
-      else if(28<t<=29){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, HIGH);
-              digitalWrite(led6, HIGH);
-              digitalWrite(led7, HIGH);
-              digitalWrite(led8, HIGH);
-              digitalWrite(led9, LOW);
-              }
-     else if(t<=30){
-              digitalWrite(led0, HIGH);
-              digitalWrite(led1, HIGH);
-              digitalWrite(led2, HIGH);
-              digitalWrite(led3, HIGH);
-              digitalWrite(led4, HIGH);
-              digitalWrite(led5, HIGH);
-              digitalWrite(led6, HIGH);
-              digitalWrite(led7, HIGH);
-              digitalWrite(led8, HIGH);
-              digitalWrite(led9, HIGH);
-              }
+void ledWrite(int n){                                             // n = number of on LEDs
+
+  for(int i=0; i<n ; i++) digitalWrite(i + led0, HIGH);           // turning on LEDs based on temperature
+  for(int i=9; i>=n; i--) digitalWrite(i + led0, LOW);            // turning off remaining LEDs
+}
+
+// Condition creation function based on temperature read
+
+void ledTempBar(float temp){ 
+   
+   if(temp >= 20 && temp <= 30){
+
+      if(temp <= 21) ledWrite(1);
+      else if(temp <= 22) ledWrite(2);
+      else if(temp <= 23) ledWrite(3);
+      else if(temp <= 24) ledWrite(4);
+      else if(temp <= 25) ledWrite(5);
+      else if(temp <= 26) ledWrite(6);
+      else if(temp <= 27) ledWrite(7);              
+      else if(temp <= 28) ledWrite(8);
+      else if(temp <= 29) ledWrite(9);
+      else if(temp <= 30) ledWrite(10);    
    }
 }
 
