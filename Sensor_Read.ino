@@ -1,5 +1,5 @@
 
-//reading sensor data and passing to global varaible. Returning reading is success or failure.
+// Reading sensor data and passing to global varaible. Returning reading is success or failure.
 
 bool dhtSensorRead(void) {
 
@@ -10,5 +10,4 @@ bool dhtSensorRead(void) {
     return 1;                                 // success getData
   } 
   else return 0;                              // failure getData
-
 }
