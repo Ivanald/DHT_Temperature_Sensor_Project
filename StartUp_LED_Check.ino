@@ -1,4 +1,5 @@
 void startupLedCheck(void){
+  
   analogWrite(pwmPin, 0);
   for(int i=0; i>=9; i++) {
   digitalWrite(i + led0, LOW);            // turning off remaining LEDs

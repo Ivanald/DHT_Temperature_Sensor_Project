@@ -1,18 +1,12 @@
-#include <Bonezegei_DHT11.h>
-
-#include <Bonezegei_DHT11.h>
-
-#include <Bonezegei_DHT11.h>
 
 // Project: DHT Sensor Temperature and Humidty 
 // Developer: Jahnavi 
 // Date: 29/11/2024 Version 1
-// End Date: 
+// End Date: 02/12/2024
 
 // All Library files
 
 #include <Bonezegei_DHT11.h>
-
 
 // All definitions
 
@@ -31,14 +25,14 @@
 #define blinkRate 250                               // Blinking rate of LED in milli seconds for temp > 30
 #define sensorReadTime 1200                         // Time between each read of sensor
 #define PWMStepDelay 100                            // Time between each PWM step for breathing LEDs
+#define errorIndicatorDelay 150                     // Time between the blinking for error
 
 // All GlobalVariables
 
 float temp = 0;                                     // For saving temp
 int humidity = 0;                                   // For saving humidity
 long int prevMills = 0, currMills = 0,              // For mills function
-         prevRMills = 0, currRMills = 0; 
-         // currPWMMills = 0, prevPWMMills = 0;         
+         prevRMills = 0, currRMills = 0;        
 bool toggle;                                        // For alternate blinking
 
 // Instance creation
